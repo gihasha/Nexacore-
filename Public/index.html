@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Nexacore · Technology Platform</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar-nexa">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="nexa-brand-wrapper" onclick="window.location.href='/?page=dashboard'">
+                    <div class="nexa-brand">
+                        NEXACORE<span style="color: var(--nexa-blue); -webkit-text-fill-color: var(--nexa-blue);">.</span>
+                    </div>
+                    <div class="tech-circuit">
+                        <div class="circuit-line"></div>
+                        <div class="circuit-dot"></div>
+                        <div class="circuit-line"></div>
+                    </div>
+                </div>
+                <button class="hamburger-premium" data-bs-toggle="offcanvas" data-bs-target="#nexaSidebar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="offcanvas offcanvas-start offcanvas-nexa" tabindex="-1" id="nexaSidebar">
+        <div class="offcanvas-header p-4" style="border-bottom: 1px solid rgba(10,102,255,0.2);">
+            <div class="nexa-brand" style="font-size: 26px;">
+                NEXACORE<span style="color: var(--nexa-blue); -webkit-text-fill-color: var(--nexa-blue);">.</span>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="filter: invert(1);"></button>
+        </div>
+        
+        <div class="offcanvas-body p-4">
+            <!-- Profile Header -->
+            <div class="profile-header-sidebar">
+                <div class="d-flex align-items-center">
+                    <div class="profile-avatar-side me-3" onclick="document.getElementById('profileUploadInput').click();">
+                        <img id="sidebarProfileImg" src="https://via.placeholder.com/80x80/0A66FF/FFFFFF?text=N" alt="Profile">
+                    </div>
+                    <div>
+                        <h5 id="sidebarNickname" style="font-weight: 700; margin-bottom: 4px;">Tech Explorer</h5>
+                        <p id="sidebarUsername" style="color: var(--nexa-blue); margin-bottom: 0; font-size: 13px;">@guest_user</p>
+                        <p id="sidebarEmail" style="color: var(--nexa-text-dim); font-size: 12px; margin-top: 4px;">guest@nexacore.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div style="display: flex; flex-direction: column;">
+                <a href="/?page=dashboard" class="nav-item-premium"><i class="fas fa-chart-pie"></i> Dashboard</a>
+                <a href="/?page=profile" class="nav-item-premium"><i class="fas fa-id-card"></i> My Profile</a>
+                <a href="/?page=subscription" class="nav-item-premium"><i class="fas fa-crown"></i> Subscription</a>
+                <a href="/?page=services" class="nav-item-premium"><i class="fas fa-microchip"></i> Services</a>
+                <a href="/?page=settings" class="nav-item-premium"><i class="fas fa-sliders-h"></i> Settings</a>
+                <a href="/?page=security" class="nav-item-premium"><i class="fas fa-shield-haltered"></i> Two-Step Security</a>
+            </div>
+
+            <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--nexa-blue), transparent); margin: 20px 0;"></div>
+
+            <div>
+                <a href="#" id="logoutBtn" class="nav-item-premium" style="color: #FF6B6B;" onclick="handleLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT - ALL PAGES -->
+    <main>
+        <!-- ===== DASHBOARD PAGE ===== -->
+        <div id="dashboard-page">
+            <div class="dashboard-container">
+                <!-- Hero Section -->
+                <div class="hero-section" data-aos="fade-up">
+                    <div class="hero-content">
+                        <span class="hero-badge">
+                            <i class="fas fa-bolt"></i> Nexacore v3.0 · Enterprise Ready
+                        </span>
+                        
+                        <h1 class="hero-title">
+                            Complete Technology<br>
+                            <span class="gradient-text">Sales Ecosystem</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Nexacore is the ultimate platform for digital entrepreneurs. 
+                            Sell WhatsApp bots, reseller panels, and premium accounts with 
+                            automated delivery, real-time analytics, and bank-grade security.
+                        </p>
+
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <i class="fas fa-robot"></i>
+                                <div>
+                                    <strong>WhatsApp Bots</strong>
+                                    <span>Auto-reply, bulk messaging, API access</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-layer-group"></i>
+                                <div>
+                                    <strong>Reseller Panels</strong>
+                                    <span>Streaming, education, software licenses</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>2FA Security</strong>
+                                    <span>Two-factor authentication, login alerts</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <strong>50+ Languages</strong>
+                                    <span>Global reach, automatic translation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-preview">
+                            <div class="stat-badge">
+                                <i class="fas fa-check-circle"></i> 2,500+ Active Sellers
+                            </div>
+                            <div class="stat-badge">
+                                <i class="fas fa-check-circle"></i> 99.99% Uptime
+                            </div>
+                            <div class="stat-badge">
+                                <i class="fas fa-check-circle"></i> 24/7 Support
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <h2 class="section-title">Live Platform Analytics</h2>
+                
+                <div class="stat-card-vertical" data-aos="fade-up">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">Active Users</p>
+                            <div class="stat-value-vertical">12,847</div>
+                            <span class="trend-up"><i class="fas fa-arrow-up"></i> +23.5% vs last month</span>
+                        </div>
+                        <i class="fas fa-users stat-icon"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card-vertical" data-aos="fade-up">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">Active Sellers</p>
+                            <div class="stat-value-vertical">3,842</div>
+                            <span class="trend-up"><i class="fas fa-arrow-up"></i> +18.2% growth rate</span>
+                        </div>
+                        <i class="fas fa-store stat-icon"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card-vertical" data-aos="fade-up">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">Total Orders</p>
+                            <div class="stat-value-vertical">52.9K</div>
+                            <span class="trend-up"><i class="fas fa-arrow-up"></i> +42.1% this quarter</span>
+                        </div>
+                        <i class="fas fa-shopping-cart stat-icon"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card-vertical" data-aos="fade-up">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">Revenue (LKR)</p>
+                            <div class="stat-value-vertical">රු 2.8M</div>
+                            <span class="trend-up"><i class="fas fa-arrow-up"></i> +31.7% monthly</span>
+                        </div>
+                        <i class="fas fa-chart-line stat-icon"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card-vertical" data-aos="fade-up">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">WhatsApp Bots</p>
+                            <div class="stat-value-vertical">1,247</div>
+                            <span class="trend-up"><i class="fas fa-arrow-up"></i> +52 this week</span>
+                        </div>
+                        <i class="fab fa-whatsapp stat-icon"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card-vertical" data-aos="fade-up">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">System Uptime</p>
+                            <div class="stat-value-vertical">99.99%</div>
+                            <span class="text-success">✅ 30 days no incidents</span>
+                        </div>
+                        <i class="fas fa-check-circle stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PROFILE PAGE ===== -->
+        <div id="profile-page" style="display: none;">
+            <div class="container py-5" style="max-width: 700px; margin-top: 80px;">
+                <div class="profile-card">
+                    <h2 class="page-title">My Profile</h2>
+                    
+                    <div class="text-center mb-4">
+                        <div class="profile-upload-area" onclick="document.getElementById('profileUploadInput').click();">
+                            <img id="profilePreviewImg" src="https://via.placeholder.com/120x120/0A66FF/FFFFFF?text=N" alt="Profile" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: none;">
+                            <i id="profilePreviewIcon" class="fas fa-camera"></i>
+                            <span>Upload Photo</span>
+                        </div>
+                        <input type="file" id="profileUploadInput" accept="image/*" style="display: none;" onchange="handleProfileUpload(event)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nickname</label>
+                        <input type="text" id="nicknameInput" class="form-control" value="Tech Explorer">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="usernameInput" class="form-control" value="guest_user">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="fullNameInput" class="form-control" placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <textarea id="bioInput" rows="3" class="form-control" placeholder="Tell us about yourself..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input type="text" id="whatsappInput" class="form-control" placeholder="+94 XX XXX XXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telegram</label>
+                        <input type="text" id="telegramInput" class="form-control" placeholder="@username">
+                    </div>
+
+                    <button onclick="saveProfile()" class="btn-save-profile">
+                        Save Profile Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SETTINGS PAGE ===== -->
+        <div id="settings-page" style="display: none;">
+            <div class="container py-5" style="max-width: 800px; margin-top: 80px;">
+                <div class="settings-card">
+                    <h2 class="page-title">Settings</h2>
+                    
+                    <!-- Account Settings -->
+                    <div class="settings-group">
+                        <h3><i class="fas fa-user-circle"></i> Account</h3>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Email Address</div>
+                                <div class="settings-item-desc" id="currentEmailDisplay">guest@nexacore.com</div>
+                            </div>
+                            <button class="btn-settings" onclick="openChangeEmailModal()">Change</button>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Password</div>
+                                <div class="settings-item-desc">Last changed 30 days ago</div>
+                            </div>
+                            <button class="btn-settings" onclick="openChangePasswordModal()">Update</button>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Phone Number</div>
+                                <div class="settings-item-desc" id="currentPhoneDisplay">Not verified</div>
+                            </div>
+                            <button class="btn-settings" onclick="openVerifyPhoneModal()">Add</button>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="settings-group">
+                        <h3><i class="fas fa-shield-alt"></i> Security</h3>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Two-Factor Authentication</div>
+                                <div class="settings-item-desc">Protect your account with 2FA</div>
+                            </div>
+                            <button class="btn-settings" id="2faButton" onclick="toggle2FA()">Enable</button>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Login Alerts</div>
+                                <div class="settings-item-desc">Get notified on new sign-ins</div>
+                            </div>
+                            <button class="btn-settings" id="loginAlertsButton" onclick="toggleLoginAlerts()">Enable</button>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="settings-group">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">SMS Notifications</div>
+                                <div class="settings-item-desc">Send alerts to your phone</div>
+                            </div>
+                            <button class="btn-settings" id="smsButton" onclick="toggleSMS()">Enable</button>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Email Notifications</div>
+                                <div class="settings-item-desc">Orders, updates, promotions</div>
+                            </div>
+                            <button class="btn-settings" id="emailNotifButton" onclick="toggleEmailNotifications()">Enable</button>
+                        </div>
+                    </div>
+
+                    <!-- Language & Region -->
+                    <div class="settings-group">
+                        <h3><i class="fas fa-globe"></i> Language & Region</h3>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Display Language</div>
+                                <div class="settings-item-desc">50+ languages supported</div>
+                            </div>
+                            <select id="languageSelect" onchange="changeLanguage(this.value)" class="settings-select">
+                                <option value="en">English</option>
+                                <option value="si">සිංහල</option>
+                                <option value="ta">தமிழ்</option>
+                                <option value="hi">हिन्दी</option>
+                                <option value="es">Español</option>
+                                <option value="fr">Français</option>
+                                <option value="ar">العربية</option>
+                                <option value="zh">中文</option>
+                                <option value="ja">日本語</option>
+                            </select>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Currency</div>
+                                <div class="settings-item-desc">Default payment currency</div>
+                            </div>
+                            <select id="currencySelect" onchange="updateCurrency(this.value)" class="settings-select">
+                                <option value="LKR">LKR (රු)</option>
+                                <option value="USD">USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (£)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="settings-group">
+                        <h3><i class="fas fa-credit-card"></i> Payment</h3>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Payment Methods</div>
+                                <div class="settings-item-desc">Add bank cards, wallets</div>
+                            </div>
+                            <button class="btn-settings" onclick="openAddCardModal()">+ Add Card</button>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <div>
+                                <div class="settings-item-title">Payment History</div>
+                                <div class="settings-item-desc">View invoices & receipts</div>
+                            </div>
+                            <button class="btn-settings" onclick="viewPaymentHistory()">View</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-save-all" onclick="saveAllSettings()">
+                        Save All Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SECURITY PAGE ===== -->
+        <div id="security-page" style="display: none;">
+            <div class="container py-5" style="max-width: 700px; margin-top: 80px;">
+                <div class="settings-card">
+                    <h2 class="page-title">Security Questions</h2>
+                    
+                    <div id="securityQuestionsContainer">
+                        <div class="security-question-item mb-3">
+                            <select class="form-select mb-2">
+                                <option>What is your mother's maiden name?</option>
+                                <option>What was the name of your first pet?</option>
+                                <option>What city were you born in?</option>
+                                <option>What is your favorite movie?</option>
+                            </select>
+                            <input type="text" class="form-control" placeholder="Your answer">
+                        </div>
+                    </div>
+                    
+                    <button onclick="addSecurityQuestion()" class="btn-add-question mb-3">
+                        <i class="fas fa-plus"></i> Add Another Question
+                    </button>
+                    
+                    <button class="btn-save-security" onclick="saveSecurityQuestions()">
+                        Save Security Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SUBSCRIPTION PAGE ===== -->
+        <div id="subscription-page" style="display: none;">
+            <div class="container py-5 text-center" style="max-width: 600px; margin-top: 80px;">
+                <div class="coming-soon-card">
+                    <i class="fas fa-crown coming-soon-icon"></i>
+                    <h2>Subscription Plans</h2>
+                    <p>We're preparing exclusive plans for our sellers. Early access coming Q2 2025.</p>
+                    <span class="coming-soon-badge">
+                        <i class="fas fa-clock"></i> Coming Soon
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SERVICES PAGE ===== -->
+        <div id="services-page" style="display: none;">
+            <div class="container py-5 text-center" style="max-width: 600px; margin-top: 80px;">
+                <div class="coming-soon-card">
+                    <i class="fas fa-microchip coming-soon-icon"></i>
+                    <h2>Services Catalog</h2>
+                    <p>WhatsApp bots, reseller panels, automation tools — launching soon.</p>
+                    <span class="coming-soon-badge">
+                        <i class="fas fa-clock"></i> Coming Soon
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== LOGIN PAGE ===== -->
+        <div id="login-page" style="display: none;">
+            <div class="container py-5" style="max-width: 450px; margin-top: 80px;">
+                <div class="auth-card">
+                    <h2 class="text-center mb-4">Welcome Back</h2>
+                    
+                    <div class="mb-3">
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Email address">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Password">
+                    </div>
+                    
+                    <div class="text-end mb-3">
+                        <a href="#" onclick="openForgotPasswordModal()" style="color: var(--nexa-blue);">Forgot password?</a>
+                    </div>
+                    
+                    <button onclick="handleLogin()" class="btn-auth-primary w-100">
+                        Login to Nexacore
+                    </button>
+                    
+                    <p class="text-center mt-4">
+                        Don't have an account? 
+                        <a href="/?page=signup" style="color: var(--nexa-blue); font-weight: 600;">Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SIGNUP PAGE ===== -->
+        <div id="signup-page" style="display: none;">
+            <div class="container py-5" style="max-width: 450px; margin-top: 80px;">
+                <div class="auth-card">
+                    <h2 class="text-center mb-4">Create Account</h2>
+                    
+                    <div class="mb-3">
+                        <input type="email" id="signupEmail" class="form-control" placeholder="Email address">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="password" id="signupPassword" class="form-control" placeholder="Password">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Confirm password">
+                    </div>
+                    
+                    <button onclick="handleSignup()" class="btn-auth-primary w-100">
+                        Create Account
+                    </button>
+                    
+                    <p class="text-center mt-4">
+                        Already have an account? 
+                        <a href="/?page=login" style="color: var(--nexa-blue); font-weight: 600;">Login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== MODALS ===== -->
+
+    <!-- Change Email Modal -->
+    <div class="modal fade" id="changeEmailModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content nexa-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Change Email Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div id="emailStep1">
+                        <p class="text-muted mb-3">Current email: <strong id="modalCurrentEmail">guest@nexacore.com</strong></p>
+                        <p class="text-muted mb-3">A verification code will be sent to your current email.</p>
+                        
+                        <div class="mb-4">
+                            <label class="form-label">New Email Address</label>
+                            <input type="email" id="newEmailInput" class="form-control" placeholder="new@email.com">
+                        </div>
+                        
+                        <button class="btn-nexa-primary w-100" onclick="sendEmailVerification()">
+                            Send Verification Code
+                        </button>
+                    </div>
+                    
+                    <div id="emailStep2" style="display: none;">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-envelope" style="font-size: 48px; color: var(--nexa-blue);"></i>
+                            <h5 class="mt-3">Verify Your Email</h5>
+                            <p class="text-muted">Code sent to <span id="verificationEmailDisplay" class="fw-bold"></span></p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-4">
+                            <input type="text" class="code-input" maxlength="1" id="code1">
+                            <input type="text" class="code-input" maxlength="1" id="code2">
+                            <input type="text" class="code-input" maxlength="1" id="code3">
+                            <input type="text" class="code-input" maxlength="1" id="code4">
+                            <input type="text" class="code-input" maxlength="1" id="code5">
+                            <input type="text" class="code-input" maxlength="1" id="code6">
+                        </div>
+                        
+                        <button class="btn-nexa-primary w-100" onclick="verifyEmailCode()">
+                            Verify & Update Email
+                        </button>
+                        
+                        <p class="text-center mt-3">
+                            <a href="#" onclick="resendEmailCode()" style="color: var(--nexa-blue);">Resend code</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verify Phone Modal -->
+    <div class="modal fade" id="verifyPhoneModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content nexa-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Verify Phone Number</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div id="phoneStep1">
+                        <div class="mb-4">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" id="phoneNumberInput" class="form-control" placeholder="+94 XX XXX XXXX">
+                            <small class="text-muted">Format: +94XXXXXXXXX</small>
+                        </div>
+                        
+                        <button class="btn-nexa-primary w-100" onclick="sendPhoneVerification()">
+                            Send Verification Code
+                        </button>
+                    </div>
+                    
+                    <div id="phoneStep2" style="display: none;">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-mobile-alt" style="font-size: 48px; color: var(--nexa-blue);"></i>
+                            <h5 class="mt-3">Enter Verification Code</h5>
+                            <p class="text-muted">Code sent to <span id="phoneNumberDisplay" class="fw-bold"></span></p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-4">
+                            <input type="text" class="code-input" maxlength="1" id="phoneCode1">
+                            <input type="text" class="code-input" maxlength="1" id="phoneCode2">
+                            <input type="text" class="code-input" maxlength="1" id="phoneCode3">
+                            <input type="text" class="code-input" maxlength="1" id="phoneCode4">
+                            <input type="text" class="code-input" maxlength="1" id="phoneCode5">
+                            <input type="text" class="code-input" maxlength="1" id="phoneCode6">
+                        </div>
+                        
+                        <button class="btn-nexa-primary w-100" onclick="verifyPhoneCode()">
+                            Verify Phone Number
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Card Modal -->
+    <div class="modal fade" id="addCardModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content nexa-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Bank Card</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label">Card Number</label>
+                        <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Expiry Date</label>
+                            <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">CVV</label>
+                            <input type="text" id="cvv" class="form-control" placeholder="123">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Cardholder Name</label>
+                        <input type="text" id="cardHolder" class="form-control" placeholder="John Doe">
+                    </div>
+                    
+                    <button class="btn-nexa-primary w-100" onclick="addPaymentMethod()">
+                        Add Card
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment History Modal -->
+    <div class="modal fade" id="paymentHistoryModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content nexa-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Payment History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Method</th>
+                                    <th>Status</th>
+                                    <th>Receipt</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentHistoryBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content nexa-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted mb-3">Enter your email address to receive a password reset link.</p>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="resetEmail" class="form-control" placeholder="your@email.com">
+                    </div>
+                    
+                    <button class="btn-nexa-primary w-100" onclick="sendPasswordReset()">
+                        Send Reset Link
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/script.js"></script>
+    
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display: none;"></div>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,si,ta,hi,es,fr,de,ar,zh-CN,ja,ru,pt,ko,it,tr,vi,th,ms,id',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
